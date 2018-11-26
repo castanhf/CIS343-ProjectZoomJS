@@ -1,6 +1,7 @@
 %{
 	#include <stdio.h>
 	#include <math.h>
+	#include "zoomjoystrong.tab.h"
 	void printLexeme();
 %}
 
@@ -8,67 +9,31 @@ INT	[0-9]
 
 %%
 
-end	{
-	printf("END\t");
-	printLexeme();
-	printf("\n");
-}
+end		return END;
 
-;	{
-	printf("END_STATEMENT\t");
-	printLexeme();
-	printf("\n");
-}
+;		return END_STATEMENT;
 
-"point"	{
-	printf("POINT\t");
-	printLexeme();
-	printf("\n");
-}
+point		return POINT;
 
-"line"	{
-	printf("LINE\t");
-	printLexeme();
-	printf("\n");
-}
+line		return LINE;
 
-"circle"	{
-	printf("CIRCLE\t");
-	printLexeme();
-	printf("\n");
-}
+circle		return CIRCLE;
 
-"rectangle"	{
-	printf("RECTANGLE\t");
-	printLexeme();
-	printf("\n");
-}
+rectangle	return RECTANGLE;
 
-"set color"[s]?	{
-	printf("SET_COLOR\t");
-	printLexeme();
-	printf("\n");
-}
+set_color[s]?	return SET_COLOR;
 
-{INT}+	{
-	printf("INT\t");
-	printLexeme();
-	printf("\n");
-}
+{INT}+		return INT;
 
-{INT}+"."{INT}*	{
-	printf("FLOAT\t");
-	printLexeme();
-	printf("\n");
-}
+{INT}+"."{INT}*	return FLOAT;
 
 "+"|"-"|"*"|"/"	printf("TERMINAL OPERATOR: %s\n", yytext);
 
-"{"[^}\n]*"}"	/* ignores one-line comments */
+"{"[^}\n]*"}"	;	/* ignores one-line comments */
 
-[ \t\n]+	/* ignores whitespaces */
+[ \t\n]+	;	/* ignores whitespaces */
 
-.	printf("ERROR on line 1: %s\n", yytext);
+.		printf("ERROR on line 1: %s\n", yytext);
 
 %%
 
