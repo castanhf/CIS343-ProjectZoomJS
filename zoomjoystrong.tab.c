@@ -66,8 +66,9 @@
 
 	#include <stdio.h>
 	int yyerror(const char* err);
+//	int yylex();
 
-#line 71 "zoomjoystrong.tab.c" /* yacc.c:339  */
+#line 72 "zoomjoystrong.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -130,7 +131,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 134 "zoomjoystrong.tab.c" /* yacc.c:358  */
+#line 135 "zoomjoystrong.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -428,8 +429,8 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    18,    18,    21,    22,    25,    26,    27,    28,    29,
-      30,    31,    32,    33
+       0,    19,    19,    22,    23,    24,    27,    28,    29,    30,
+      31,    32,    33,    34
 };
 #endif
 
@@ -477,7 +478,7 @@ static const yytype_int8 yypact[] =
      means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-       0,    13,    12,     6,     5,     7,     8,     9,    10,    11,
+       0,     5,    13,     7,     6,     8,     9,    10,    11,    12,
        0,     2,     3,     1,     4
 };
 
@@ -519,7 +520,7 @@ static const yytype_uint8 yystos[] =
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
-       0,    12,    13,    14,    14,    15,    15,    15,    15,    15,
+       0,    12,    13,    14,    14,    14,    15,    15,    15,    15,
       15,    15,    15,    15
 };
 
@@ -1205,7 +1206,7 @@ yyreduce:
   switch (yyn)
     {
       
-#line 1209 "zoomjoystrong.tab.c" /* yacc.c:1648  */
+#line 1210 "zoomjoystrong.tab.c" /* yacc.c:1648  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1433,7 +1434,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 36 "zoomjoystrong.y" /* yacc.c:1907  */
+#line 37 "zoomjoystrong.y" /* yacc.c:1907  */
 
 
 int main(int argc, char** argv){

@@ -1,6 +1,7 @@
 %{
 	#include <stdio.h>
 	int yyerror(const char* err);
+//	int yylex();
 %}
 
 %token END
@@ -20,6 +21,7 @@ program:	list_stmt
 
 list_stmt:	stmt
 	|	stmt list_stmt
+	|	END
 	;
 
 stmt:		LINE 
@@ -30,7 +32,6 @@ stmt:		LINE
 	|	INT
 	|	FLOAT
     	|	END_STATEMENT
-    	|	END
     	;
 
 %%
