@@ -21,7 +21,7 @@ circle		return CIRCLE;
 
 rectangle	return RECTANGLE;
 
-set_color[s]?	return SET_COLOR;
+set_color	return SET_COLOR;
 
 {INT}+		return INT;
 
@@ -40,10 +40,3 @@ set_color[s]?	return SET_COLOR;
 void printLexeme() {
 	printf("(%s)\n", yytext);
 }
-
-/*
-int main(int argc, char** argv) {
-	yylex();
-	return 0;
-}
-*/

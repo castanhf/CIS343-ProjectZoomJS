@@ -45,15 +45,15 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    END = 258,
-    END_STATEMENT = 259,
-    POINT = 260,
-    LINE = 261,
-    CIRCLE = 262,
-    RECTANGLE = 263,
-    SET_COLOR = 264,
-    INT = 265,
-    FLOAT = 266
+    POINT = 258,
+    LINE = 259,
+    CIRCLE = 260,
+    RECTANGLE = 261,
+    SET_COLOR = 262,
+    INT = 263,
+    FLOAT = 264,
+    END_STATEMENT = 265,
+    END = 266
   };
 #endif
 

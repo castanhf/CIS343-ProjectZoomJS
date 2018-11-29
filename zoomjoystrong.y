@@ -1,11 +1,10 @@
 %{
 	#include <stdio.h>
 	int yyerror(const char* err);
-//	int yylex();
 %}
 
-%token END
-%token END_STATEMENT
+%define parse.error verbose
+
 %token POINT
 %token LINE
 %token CIRCLE
@@ -13,25 +12,23 @@
 %token SET_COLOR
 %token INT
 %token FLOAT
+%token END_STATEMENT
+%token END
 
 %%
 
-program:	list_stmt
+program:	list_stmt END END_STATEMENT
        	;
 
 list_stmt:	stmt
-	|	stmt list_stmt
-	|	END
+ 	|	list_stmt stmt	
 	;
 
-stmt:		LINE 
-    	|	POINT
-	|	CIRCLE
-	|	RECTANGLE
-	|	SET_COLOR
-	|	INT
-	|	FLOAT
-    	|	END_STATEMENT
+stmt:		LINE INT INT INT INT END_STATEMENT
+    	|	POINT INT INT END_STATEMENT
+	|	CIRCLE INT INT INT END_STATEMENT
+	|	RECTANGLE INT INT INT INT END_STATEMENT
+	|	SET_COLOR INT INT INT END_STATEMENT
     	;
 
 %%
