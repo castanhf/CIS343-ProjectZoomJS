@@ -1,31 +1,37 @@
 %{
 	#include <stdio.h>
-	#include <math.h>
+	#include <stdlib.h>
 	#include "zoomjoystrong.tab.h"
 	void printLexeme();
+	void yyerror(char*);
+	int fileno(FILE *stream);
 %}
 
 INT	[0-9]
 
 %%
 
-end		return END;
+end		{return END;}
 
-;		return END_STATEMENT;
+;		{return END_STATEMENT;}
 
-point		return POINT;
+point		{return POINT;}
 
-line		return LINE;
+line		{return LINE;}
 
-circle		return CIRCLE;
+circle		{return CIRCLE;}
 
-rectangle	return RECTANGLE;
+rectangle	{return RECTANGLE;}
 
-set_color	return SET_COLOR;
+set_color	{return SET_COLOR;}
 
-{INT}+		return INT;
+{INT}+		{
+			yylval.iVal = atoi(yytext);
+			return INT;}
 
-{INT}+"."{INT}*	return FLOAT;
+{INT}+"."{INT}*	{
+			yylval.fVal = atof(yytext);
+			return FLOAT;}
 
 "+"|"-"|"*"|"/"	printf("TERMINAL OPERATOR: %s\n", yytext);
 
@@ -33,7 +39,9 @@ set_color	return SET_COLOR;
 
 [ \t\n]+	;	/* ignores whitespaces */
 
-.		printf("ERROR on line 1: %s\n", yytext);
+.		{
+			printf("ERROR on line 1: %s\n", yytext);
+			yyerror("This is an invalid character");}
 
 %%
 
