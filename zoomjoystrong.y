@@ -98,7 +98,11 @@ set_color:	SET_COLOR INT INT INT END_STATEMENT
 					yyerror("Invalid color");}
 			}
 %%
-
+// The bison files incorporates the following:
+// one - Definitions and Declarations, which cover include statements, function
+// prototypes(signatures) and more
+// two - Grammar Rules - the semantics, the meaning of each read token
+// three - Additional C code to customize the parser
 int main(int argc, char** argv){
 	char option;
 	setup();

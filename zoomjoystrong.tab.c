@@ -1539,7 +1539,11 @@ yyreturn:
 }
 #line 100 "zoomjoystrong.y" /* yacc.c:1907  */
 
-
+// The bison files incorporates the following:
+// one - Definitions and Declarations, which cover include statements, function
+// prototypes(signatures) and more
+// two - Grammar Rules - the semantics, the meaning of each read token
+// three - Additional C code to customize the parser
 int main(int argc, char** argv){
 	char option;
 	setup();

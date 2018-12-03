@@ -44,7 +44,12 @@ set_color	{return SET_COLOR;}
 			yyerror("This is an invalid character");}
 
 %%
-
+// This file starts with
+// one - Definitions and Declarations
+// which go over include statements and function prototypes (signatures)
+// two - Token rules - the tokens that are going to be used in the
+// bison file
+// three - Additional C code to customize the file
 void printLexeme() {
 	printf("(%s)\n", yytext);
 }
